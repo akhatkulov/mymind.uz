@@ -9,9 +9,9 @@ with app.app_context():
 @app.route("/")
 def home():
     if current_user.is_authenticated:
-        return f"Hey, {current_user.name}"
+        return redirect("/dashboard")
     else:
-        return f"Hey Notanish Shoir"
+        return render_template("index.html")
 
 @auth.route("/signin")
 def signin():
